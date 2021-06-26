@@ -1,0 +1,71 @@
+openapi: "3.0.0"
+info:
+  title: Office Health - API
+  version: 0.0.1
+paths:
+  /workout:
+    get:
+      summary: Generate and receive random workout
+      operationId: workout
+      tags:
+        - workout
+      parameters:
+        - name: time
+          in: query
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful workout retrieval
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Workout'
+        default:
+          description: Unexpected error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Workout:
+      type: object
+      required:
+        - exercises
+      properties:
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkoutExercise'
+    WorkoutExercise:
+      type: object
+      required:
+        - exercise
+        - time
+      properties:
+        exercise:
+          $ref:
+            '#/components/schemas/Exercise'
+        time:
+          type: integer
+          format: int64
+    Exercise:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
