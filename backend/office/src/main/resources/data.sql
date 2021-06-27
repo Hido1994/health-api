@@ -1,0 +1,1 @@
+INSERT INTO EXERCISE (id, name) VALUES (1, 'WALK')
