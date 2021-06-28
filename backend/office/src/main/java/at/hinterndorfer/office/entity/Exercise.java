@@ -18,4 +18,7 @@ public class Exercise {
 
     @Column(nullable = false)
     private String name;
+
+    @Column
+    private String description;
 }

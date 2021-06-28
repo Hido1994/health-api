@@ -58,6 +58,8 @@ components:
       properties:
         name:
           type: string
+        description:
+          type: string
     Error:
       type: object
       required:

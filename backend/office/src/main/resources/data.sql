@@ -1,1 +1,7 @@
-INSERT INTO EXERCISE (id, name) VALUES (1, 'WALK')
+INSERT INTO EXERCISE VALUES (1, 'Walk', 'Just walk around in the room and don''t look on a screen')
+INSERT INTO EXERCISE VALUES (2, 'Arm circles', 'Rotate your arms')
+INSERT INTO EXERCISE VALUES (3, 'Dummy Exercise #1', 'This is just a test')
+INSERT INTO EXERCISE VALUES (4, 'Dummy Exercise #2', 'This is just a test')
+INSERT INTO EXERCISE VALUES (5, 'Dummy Exercise #3', 'This is just a test')
+INSERT INTO EXERCISE VALUES (6, 'Dummy Exercise #4', 'This is just a test')
+INSERT INTO EXERCISE VALUES (7, 'Dummy Exercise #5', 'This is just a test')
