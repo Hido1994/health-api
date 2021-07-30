@@ -7,7 +7,6 @@ import at.hinterndorfer.health.model.dto.QuoteTagDTO;
 import at.hinterndorfer.health.repository.QuoteRepository;
 import at.hinterndorfer.health.repository.QuoteTagRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -23,13 +22,12 @@ public class QuoteApiDelegateImpl implements QuoteApiDelegate {
 
     private final QuoteRepository quoteRepository;
     private final QuoteTagRepository quoteTagRepository;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
-
-    public QuoteApiDelegateImpl(QuoteRepository quoteRepository, QuoteTagRepository quoteTagRepository) {
+    public QuoteApiDelegateImpl(QuoteRepository quoteRepository, QuoteTagRepository quoteTagRepository, ModelMapper modelMapper) {
         this.quoteRepository = quoteRepository;
         this.quoteTagRepository = quoteTagRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override

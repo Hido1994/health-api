@@ -1,2 +1,8 @@
-# office-health
-React + Java (Spring Boot) - Showcase Application
+# health-api
+Showcasing project
+- Java
+- Spring Boot
+- Git
+- PostgreSQL
+- OpenAPI
+- Maven
