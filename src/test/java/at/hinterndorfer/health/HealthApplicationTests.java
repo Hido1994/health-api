@@ -1,10 +1,10 @@
-package at.hinterndorfer.office;
+package at.hinterndorfer.health;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OfficeApplicationTests {
+class HealthApplicationTests {
 
 	@Test
 	void contextLoads() {

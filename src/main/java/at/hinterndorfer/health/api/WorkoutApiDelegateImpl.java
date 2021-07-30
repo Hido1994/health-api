@@ -1,10 +1,10 @@
-package at.hinterndorfer.office.api;
+package at.hinterndorfer.health.api;
 
-import at.hinterndorfer.office.entity.Exercise;
-import at.hinterndorfer.office.model.dto.ExerciseDTO;
-import at.hinterndorfer.office.model.dto.WorkoutDTO;
-import at.hinterndorfer.office.model.dto.WorkoutExerciseDTO;
-import at.hinterndorfer.office.repository.ExerciseRepository;
+import at.hinterndorfer.health.entity.Exercise;
+import at.hinterndorfer.health.model.dto.ExerciseDTO;
+import at.hinterndorfer.health.model.dto.WorkoutDTO;
+import at.hinterndorfer.health.model.dto.WorkoutExerciseDTO;
+import at.hinterndorfer.health.repository.ExerciseRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

@@ -1,13 +1,13 @@
-package at.hinterndorfer.office;
+package at.hinterndorfer.health;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OfficeApplication {
+public class HealthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OfficeApplication.class, args);
+		SpringApplication.run(HealthApplication.class, args);
 	}
 
 }
