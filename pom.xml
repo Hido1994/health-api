@@ -89,7 +89,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-
+                    <executable>true</executable>
                     <mainClass>at.hinterndorfer.health.HealthApplication</mainClass>
                 </configuration>
             </plugin>
