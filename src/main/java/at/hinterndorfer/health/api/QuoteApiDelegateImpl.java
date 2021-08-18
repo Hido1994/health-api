@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,7 @@ public class QuoteApiDelegateImpl implements QuoteApiDelegate {
     @Override
     public ResponseEntity<List<QuoteDTO>> quote(Long tag, Integer page, Integer limit) {
         Pageable pageable = PageRequest.of(page == null ? 0 : page,
-                limit == null ? QuoteApiDelegateImpl.DEFAULT_PAGE_LIMIT : limit);
+                limit == null ? QuoteApiDelegateImpl.DEFAULT_PAGE_LIMIT : limit, Sort.by("id").descending());
 
         Page<Quote> quoteList = tag == null ? quoteRepository.findAll(pageable) : quoteRepository.findByQuoteTags_Id(tag, pageable);
         List<QuoteDTO> quoteDTOList = quoteList
