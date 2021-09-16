@@ -34,12 +34,12 @@ paths:
                   $ref: "#/components/schemas/Quote"
         default:
           description: Unexpected error
-  /quote/tag:
+  /tag:
     get:
-      summary: Retrieve quotes tags
-      operationId: quoteTag
+      summary: Retrieve tag tree
+      operationId: tag
       tags:
-        - quoteTag
+        - tag
       responses:
         '200':
           description: Successful operation
@@ -48,62 +48,11 @@ paths:
               schema:
                 type: "array"
                 items:
-                  $ref: "#/components/schemas/QuoteTag"
-        default:
-          description: Unexpected error
-  /workout:
-    get:
-      summary: Generate and receive random workout
-      operationId: workout
-      tags:
-        - workout
-      parameters:
-        - name: time
-          in: query
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            'application/json':
-              schema:
-                $ref: '#/components/schemas/Workout'
+                  $ref: "#/components/schemas/Tag"
         default:
           description: Unexpected error
 components:
   schemas:
-    Workout:
-      type: object
-      required:
-        - exercises
-      properties:
-        exercises:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkoutExercise'
-    WorkoutExercise:
-      type: object
-      required:
-        - exercise
-        - time
-      properties:
-        exercise:
-          $ref:
-            '#/components/schemas/Exercise'
-        time:
-          type: integer
-          format: int64
-    Exercise:
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     Quote:
       type: object
       required:
@@ -120,8 +69,8 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/QuoteTag'
-    QuoteTag:
+            $ref: '#/components/schemas/Tag'
+    Tag:
       type: object
       required:
         - id
@@ -131,3 +80,7 @@ components:
           format: int64
         name:
           type: string
+        childTags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'

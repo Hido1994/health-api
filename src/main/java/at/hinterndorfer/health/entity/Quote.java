@@ -21,7 +21,7 @@ public class Quote {
     private String author;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="quote_quote_tag", joinColumns=@JoinColumn(name="quote_id"),
-            inverseJoinColumns=@JoinColumn(name="quote_tag_id"))
-    List<QuoteTag> quoteTags;
+    @JoinTable(name="quote_tag", joinColumns=@JoinColumn(name="quote_id"),
+            inverseJoinColumns=@JoinColumn(name="tag_id"))
+    private List<Tag> tags;
 }

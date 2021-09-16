@@ -7,5 +7,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface QuoteRepository extends PagingAndSortingRepository<Quote, Long> {
 
-    Page<Quote> findByQuoteTags_Id(Long id, Pageable pageable);
+    Page<Quote> findByTags_Id(Long id, Pageable pageable);
 }
