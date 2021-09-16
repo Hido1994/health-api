@@ -3,7 +3,6 @@ package at.hinterndorfer.health.api;
 import at.hinterndorfer.health.entity.Quote;
 import at.hinterndorfer.health.model.dto.QuoteDTO;
 import at.hinterndorfer.health.repository.QuoteRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,11 +17,9 @@ public class QuoteApiDelegateImpl implements QuoteApiDelegate {
     private static final int DEFAULT_PAGE_LIMIT = 10;
 
     private final QuoteRepository quoteRepository;
-    private final ModelMapper modelMapper;
 
-    public QuoteApiDelegateImpl(QuoteRepository quoteRepository, ModelMapper modelMapper) {
+    public QuoteApiDelegateImpl(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;
-        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -41,7 +38,7 @@ public class QuoteApiDelegateImpl implements QuoteApiDelegate {
         Page<Quote> quoteList = tag == null ? quoteRepository.findAll(pageable) : quoteRepository.findByTags_Id(tag, pageable);
         List<QuoteDTO> quoteDTOList = quoteList
                 .stream()
-                .map(entity -> modelMapper.map(entity, QuoteDTO.class))
+                .map(Quote::toDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(quoteDTOList);
     }

@@ -3,31 +3,24 @@ package at.hinterndorfer.health.api;
 import at.hinterndorfer.health.entity.Tag;
 import at.hinterndorfer.health.model.dto.TagDTO;
 import at.hinterndorfer.health.repository.TagRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class TagApiDelegateImpl implements TagApiDelegate {
     private final TagRepository tagRepository;
-    private final ModelMapper modelMapper;
 
-    public TagApiDelegateImpl(TagRepository tagRepository, ModelMapper modelMapper) {
+    public TagApiDelegateImpl(TagRepository tagRepository) {
         this.tagRepository = tagRepository;
-        this.modelMapper = modelMapper;
     }
 
     @Override
-    public ResponseEntity<List<TagDTO>> tag() {
-        List<Tag> tagList = tagRepository.findByParentTagIsNull();
+    public ResponseEntity<TagDTO> tag() {
+        Optional<Tag> rootTag = tagRepository.findById(1l);
 
-        List<TagDTO> quoteTagDTOList = tagList
-                .stream()
-                .map(entity -> modelMapper.map(entity, TagDTO.class))
-                .collect(Collectors.toList());
+        TagDTO quoteTagDTOList = rootTag.get().toDtoWithChildTags();
         return ResponseEntity.ok(quoteTagDTOList);
     }
 }

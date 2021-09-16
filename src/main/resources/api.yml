@@ -46,9 +46,7 @@ paths:
           content:
             'application/json':
               schema:
-                type: "array"
-                items:
-                  $ref: "#/components/schemas/Tag"
+                $ref: "#/components/schemas/Tag"
         default:
           description: Unexpected error
 components:
@@ -80,6 +78,8 @@ components:
           format: int64
         name:
           type: string
+        parentTag:
+            $ref: '#/components/schemas/Tag'
         childTags:
           type: array
           items:

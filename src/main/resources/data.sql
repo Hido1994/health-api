@@ -1,22 +1,24 @@
 INSERT INTO TAG(id, name)
-VALUES (1, 'Motivational'),
-       (2, 'Movies & Series');
+VALUES (1, 'QuoteTags');
 
 INSERT INTO TAG(id, name, parent_tag_id)
-VALUES (100, 'Inspirational', 1),
-       (101, 'Funny', 1),
-       (102, 'Love', 1);
+VALUES (100, 'Motivational', 1),
+       (101, 'Movies & Series', 1),
+       (102, 'Sports', 1);
 
 INSERT INTO TAG(id, name, parent_tag_id)
-VALUES (200, 'Anime', 2);
+VALUES (10000, 'Inspirational', 100),
+       (10001, 'Funny', 100),
+       (10002, 'Love', 100),
+       (10100, 'Anime', 101);
 
 INSERT INTO TAG(id, name, parent_tag_id)
-VALUES (20000, 'One Piece', 200),
-       (20001, 'Death Note', 200),
-       (20002, 'Naruto', 200);
+VALUES (1010000, 'One Piece', 10100),
+       (1010001, 'Death Note', 10100),
+       (1010002, 'Naruto', 10100);
 
 INSERT INTO TAG(id, name, parent_tag_id)
-VALUES (2000200, 'Naruto Uzomaki', 20002);
+VALUES (101000200, 'Naruto Uzomaki', 1010002);
 
 INSERT INTO QUOTE(id, text, author)
 VALUES (1, 'Life isn’t about getting and having, it’s about giving and being.', 'Kevin Kruse');
@@ -43,24 +45,24 @@ INSERT INTO QUOTE(id, text, author)
 VALUES (10, 'Definiteness of purpose is the starting point of all achievement.', 'W. Clement Stone');
 
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (1, 100);
+VALUES (1, 10000);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (2, 100);
+VALUES (2, 10000);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (3, 100);
+VALUES (3, 10000);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (4, 100);
+VALUES (4, 10000);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (5, 101);
+VALUES (5, 10001);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (6, 101);
+VALUES (6, 10001);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (7, 101);
+VALUES (7, 10001);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (8, 102);
+VALUES (8, 10001);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (9, 102);
+VALUES (9, 10002);
 INSERT INTO QUOTE_TAG(quote_id, tag_id)
-VALUES (10, 102);
+VALUES (10, 10002);
 
 
