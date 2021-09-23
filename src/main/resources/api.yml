@@ -62,7 +62,7 @@ components:
           format: int64
         text:
           type: string
-        author:
+        origin:
           type: string
         tags:
           type: array

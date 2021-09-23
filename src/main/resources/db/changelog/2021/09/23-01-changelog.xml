@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1632411850250-1" author="david (generated)">
+        <createTable tableName="quote">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_quote"/>
+            </column>
+            <column name="text" type="VARCHAR(1024)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="origin" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1632411850250-2" author="david (generated)">
+        <createTable tableName="quote_tag">
+            <column name="quote_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_quote_tag"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_quote_tag"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1632411850250-3" author="david (generated)">
+        <createTable tableName="tag">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tag"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_tag_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1632411850250-4" author="david (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uc_67752f299e0e100d57e8e04e7" tableName="tag"/>
+    </changeSet>
+    <changeSet id="1632411850250-5" author="david (generated)">
+        <addForeignKeyConstraint baseColumnNames="parent_tag_id" baseTableName="tag"
+                                 constraintName="FK_TAG_ON_PARENTTAG" referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+    </changeSet>
+    <changeSet id="1632411850250-6" author="david (generated)">
+        <addForeignKeyConstraint baseColumnNames="quote_id" baseTableName="quote_tag"
+                                 constraintName="fk_quote_tag_on_quote" referencedColumnNames="id"
+                                 referencedTableName="quote"/>
+    </changeSet>
+    <changeSet id="1632411850250-7" author="david (generated)">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="quote_tag" constraintName="fk_quote_tag_on_tag"
+                                 referencedColumnNames="id" referencedTableName="tag"/>
+    </changeSet>
+
+</databaseChangeLog>

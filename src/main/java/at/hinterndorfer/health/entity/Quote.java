@@ -20,7 +20,7 @@ public class Quote {
     private String text;
 
     @Column
-    private String author;
+    private String origin;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "quote_tag", joinColumns = @JoinColumn(name = "quote_id"),
@@ -31,7 +31,7 @@ public class Quote {
         return new QuoteDTO()
                 .id(id)
                 .text(text)
-                .author(author)
+                .origin(origin)
                 .tags(tags
                         .stream()
                         .map(Tag::toDtoWithParentTags)
